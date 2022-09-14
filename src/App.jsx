@@ -1,40 +1,52 @@
-import { useState } from 'react'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
 
 function App() {
-  const [description, setDescription] = useState('')
-  const id = Math.floor(100)
-  const [pilha1, setPilha1] = useState([])
-  const [pilha2, setPilha2] = useState([])
-  const [pilha3, setPilha3] = useState([])
-  const [pilha4, setPilha4] = useState([])
+  const [description, setDescription] = useState("");
+  const id = Math.floor(100);
+  const [pilha1, setPilha1] = useState([]);
+  const [pilha2, setPilha2] = useState([]);
+  const [pilha3, setPilha3] = useState([]);
+  const [pilha4, setPilha4] = useState([]);
+
+  function listarPilhas() {
+    console.log(
+      "Pilha 1: ",
+      pilha1,
+      "\n Pilha 2: ",
+      pilha2,
+      "\n Pilha 3: ",
+      pilha3,
+      "\n Pilha 4: ",
+      pilha4
+    );
+  }
 
   function handleAddNewContainer() {
     const newPilha = {
-      cod: (id * Math.floor(Math.random() * id)),
+      cod: id * Math.floor(Math.random() * id),
       descricao: description,
-    }
+    };
 
-    const newPilhas = [ ...pilha1, newPilha];
+    const newPilhas = [...pilha1, newPilha];
 
     if (pilha1.length >= 0 && pilha1.length < 3) {
       setPilha1(newPilhas);
-    } 
-    else if (pilha2.length >= 0 && pilha2.length < 3) {
-      const newPilhas2 = [ ...pilha2, newPilha]
+    } else if (pilha2.length >= 0 && pilha2.length < 3) {
+      const newPilhas2 = [...pilha2, newPilha];
       setPilha2(newPilhas2);
-    } 
-    else if (pilha3.length >= 0 && pilha3.length < 3) {
-      const newPilhas3 = [...pilha3, newPilha]
+    } else if (pilha3.length >= 0 && pilha3.length < 3) {
+      const newPilhas3 = [...pilha3, newPilha];
       setPilha3(newPilhas3);
-    } 
-    else if(pilha4.length >= 0 && pilha4.length < 3) {
-      const newPilhas4 = [...pilha4, newPilha]
-      setPilha4(newPilhas4)
+    } else if (pilha4.length >= 0 && pilha4.length < 3) {
+      const newPilhas4 = [...pilha4, newPilha];
+      setPilha4(newPilhas4);
     } else {
-      return alert("Todas Pilhas estão cheias, remova para adicionar um novo container")
+      return alert(
+        "Todas Pilhas estão cheias remova, para adicionar um novo container"
+      );
     }
-    setDescription('');
-    console.log(pilha1)
+    setDescription("");
   }
   
 function handleRemoveContainer() {
@@ -43,11 +55,10 @@ function handleRemoveContainer() {
   
 }
 
-  const onChange = e => {
-    setDescription(e.target.value)
-  }
-  
-  
+  const onChange = (e) => {
+    setDescription(e.target.value);
+  };
+
   return (
     <div className="bg-slate-900 w-screen h-screen">
       <div className='w-1/2 mx-auto'>
@@ -76,7 +87,7 @@ function handleRemoveContainer() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
