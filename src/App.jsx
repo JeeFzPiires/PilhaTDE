@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 
 function App() {
   const [description, setDescription] = useState('')
@@ -32,11 +31,17 @@ function App() {
       const newPilhas4 = [...pilha4, newPilha]
       setPilha4(newPilhas4)
     } else {
-      return alert("Todas Pilhas estão cheias remova, para adicionar um novo container")
+      return alert("Todas Pilhas estão cheias, remova para adicionar um novo container")
     }
     setDescription('');
     console.log(pilha1)
   }
+  
+function handleRemoveContainer() {
+  pilha1.pop()
+  console.log(pilha1)
+  
+}
 
   const onChange = e => {
     setDescription(e.target.value)
@@ -45,23 +50,29 @@ function App() {
   
   return (
     <div className="bg-slate-900 w-screen h-screen">
-      <div>
-        <h1 className='text-white'>Adicione o código do container</h1>
-        <input type="text" placeholder='Insira a descrição do container' value={description} onChange={onChange}/>
-        <button className='bg-red-700' onClick={handleAddNewContainer}>Adicionar</button>
+      <div className='w-1/2 mx-auto'>
+        <h1 className='text-white font-bold text-3xl pt-20 text-center'>Adicione a Descrição do container</h1>
+        <div className='mt-8 px-32'>
+          <input type="text" className='rounded-md mr-10 py-2 px-1' placeholder='Insira o codigo' value={description} onChange={onChange}/>
+          <input type="text" className='rounded-md py-2 px-1' placeholder='Insira a descrição' value={description} onChange={onChange}/>
+        </div>
+        <div className='mt-4 px-36 space-x-24'>
+          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleAddNewContainer}>Adicionar</button>
+          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleRemoveContainer}>Remover</button>
+        </div>  
       </div>
-      <div className="bg-blue-500 flex flex-wrap">
-        <div className='basis-1/2'>
-          <h1 id='pilha1'>{pilha1.cod}</h1>
+      <div className="flex-wrap">
+        <div className='bg-slate-400 w-96 mx-auto mt-4'>
+          { pilha1.map( (pilha1) => <h1 className='' key={ pilha1.cod }>{pilha1.descricao}</h1>) }
         </div>
-        <div className='basis-1/2'>
-          <h1>{pilha2.descricao}</h1>
+        <div className='bg-slate-500 w-96 mx-auto'>
+        { pilha2.map( (pilha2) => <h1 key={ pilha2.cod }>{pilha2.descricao}</h1>) }
         </div>
-        <div className='basis-1/2'>
-          <h1>{pilha3.descricao}</h1>
+        <div className='bg-slate-600 w-96 mx-auto'>
+        { pilha3.map( (pilha3) => <h1 key={ pilha3.cod }>{pilha3.descricao}</h1>) }
         </div>
-        <div className='basis-1/2'>
-          <h1>{pilha4.descricao}</h1>
+        <div className='bg-slate-700 w-96 mx-auto'>
+        { pilha4.map( (pilha4) => <h1 key={ pilha4.cod }>{pilha4.descricao}</h1>) }
         </div>
       </div>
     </div>
