@@ -54,23 +54,27 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-900 w-screen h-screen">
-      <div>
-        <h1 className="text-white">Adicione o código do container</h1>
-        <h1 className="text-white">So pra testar</h1>
-        <input
-          type="text"
-          placeholder="Insira a descrição do container"
-          value={description}
-          onChange={onChange}
-        />
-        <button className="bg-red-700" onClick={handleAddNewContainer}>
-          Adicionar
-        </button>
-        <div>
-          <button className="bg-red-700" onClick={listarPilhas}>
-            Listar
-          </button>
+    <div className=" w-screen h-screen flex content-center justify-center">
+      <div className="h-full flex flex-col justify-center  ">
+        <div className="shadow-2xl rounded-lg border border-slate-800 ">
+          <h1 className="text-black">Adicione o código do container</h1>
+          <h1 className="text-black">So pra testar</h1>
+          <input
+            type="text"
+            placeholder="Insira a descrição do container"
+            value={description}
+            onChange={onChange}
+          />
+          <div>
+            <button className="bg-red-700" onClick={handleAddNewContainer}>
+              Adicionar
+            </button>
+          </div>
+          <div>
+            <button className="bg-red-700" onClick={listarPilhas}>
+              Listar
+            </button>
+          </div>
         </div>
       </div>
       <div className="bg-blue-500 flex flex-wrap">
