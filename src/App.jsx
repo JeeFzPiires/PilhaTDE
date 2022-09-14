@@ -47,7 +47,6 @@ function App() {
       );
     }
     setDescription("");
-    console.log(pilha1);
   }
 
   const onChange = (e) => {
