@@ -15,20 +15,20 @@ function App() {
       descricao: description,
     }
 
-    const newPilhas = [ ...pilha1, newPilha];
+    const newPilhas = [...pilha1, newPilha];
 
     if (pilha1.length >= 0 && pilha1.length < 3) {
       setPilha1(newPilhas);
-    } 
+    }
     else if (pilha2.length >= 0 && pilha2.length < 3) {
-      const newPilhas2 = [ ...pilha2, newPilha]
+      const newPilhas2 = [...pilha2, newPilha]
       setPilha2(newPilhas2);
-    } 
+    }
     else if (pilha3.length >= 0 && pilha3.length < 3) {
       const newPilhas3 = [...pilha3, newPilha]
       setPilha3(newPilhas3);
-    } 
-    else if(pilha4.length >= 0 && pilha4.length < 3) {
+    }
+    else if (pilha4.length >= 0 && pilha4.length < 3) {
       const newPilhas4 = [...pilha4, newPilha]
       setPilha4(newPilhas4)
     } else {
@@ -41,13 +41,14 @@ function App() {
   const onChange = e => {
     setDescription(e.target.value)
   }
-  
-  
+
+
   return (
     <div className="bg-slate-900 w-screen h-screen">
       <div>
         <h1 className='text-white'>Adicione o código do container</h1>
-        <input type="text" placeholder='Insira a descrição do container' value={description} onChange={onChange}/>
+        <h1 className='text-white'>So pra testar</h1>
+        <input type="text" placeholder='Insira a descrição do container' value={description} onChange={onChange} />
         <button className='bg-red-700' onClick={handleAddNewContainer}>Adicionar</button>
       </div>
       <div className="bg-blue-500 flex flex-wrap">
