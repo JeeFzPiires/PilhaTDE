@@ -48,12 +48,11 @@ function App() {
     }
     setDescription("");
   }
-  
-function handleRemoveContainer() {
-  pilha1.pop()
-  console.log(pilha1)
-  
-}
+
+  function handleRemoveContainer() {
+    pilha1.pop();
+    console.log(pilha1);
+  }
 
   const onChange = (e) => {
     setDescription(e.target.value);
@@ -61,37 +60,75 @@ function handleRemoveContainer() {
 
   return (
     <div className="bg-slate-900 w-screen h-screen">
-      <div className='w-1/2 mx-auto'>
-        <h1 className='text-white font-bold text-3xl pt-20 text-center'>Adicione a Descrição do container</h1>
-        <div className='mt-8 px-32'>
-          <input type="text" className='rounded-md mr-10 py-2 px-1' placeholder='Insira o codigo' value={description} onChange={onChange}/>
-          <input type="text" className='rounded-md py-2 px-1' placeholder='Insira a descrição' value={description} onChange={onChange}/>
+      <div className="w-1/2 mx-auto">
+        <h1 className="text-white font-bold text-3xl pt-20 text-center">
+          Adicione a Descrição do container
+        </h1>
+        <div className="mt-8 px-32">
+          <input
+            type="text"
+            className="rounded-md mr-10 py-2 px-1"
+            placeholder="Insira o codigo"
+            value={description}
+            onChange={onChange}
+          />
+          <input
+            type="text"
+            className="rounded-md py-2 px-1"
+            placeholder="Insira a descrição"
+            value={description}
+            onChange={onChange}
+          />
         </div>
-        <div className='mt-4 px-36 space-x-24'>
-          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleAddNewContainer}>Adicionar</button>
-          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleRemoveContainer}>Remover</button>
-          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={listarPilhas}>Listar</button>
-        </div>  
+        <div className="mt-4 px-36 space-x-24">
+          <button
+            className="bg-blue-900 rounded-md px-10 py-2 text-white"
+            onClick={handleAddNewContainer}
+          >
+            Adicionar
+          </button>
+          <button
+            className="bg-blue-900 rounded-md px-10 py-2 text-white"
+            onClick={handleRemoveContainer}
+          >
+            Remover
+          </button>
+          <button
+            className="bg-blue-900 rounded-md px-10 py-2 text-white"
+            onClick={listarPilhas}
+          >
+            Listar
+          </button>
+        </div>
       </div>
       <div className="flex-wrap">
-      
-        <div className='bg-slate-400 w-96 mx-auto mt-4 rounded-lg border border-blue-500'>
-          { pilha1.map( (pilha1) => <h1 className='' key={ pilha1.cod }>{pilha1.descricao}</h1>) }
+        <div className="bg-slate-400 w-96 mx-auto mt-4 rounded-lg border border-blue-500 px-2">
+          {pilha1.map((pilha1) => (
+            <h1 className="" key={pilha1.cod}>
+              {pilha1.descricao}
+            </h1>
+          ))}
         </div>
-        
-        <br/>
-        
-        <div className='bg-slate-500 w-96 mx-auto rounded-lg border border-blue-500'>
-        { pilha2.map( (pilha2) => <h1 key={ pilha2.cod }>{pilha2.descricao}</h1>) }
+
+        <br />
+
+        <div className="bg-slate-500 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+          {pilha2.map((pilha2) => (
+            <h1 key={pilha2.cod}>{pilha2.descricao}</h1>
+          ))}
         </div>
-        
-        <br/>
-        <div className='bg-slate-600 w-96 mx-auto rounded-lg border border-blue-500'>
-        { pilha3.map( (pilha3) => <h1 key={ pilha3.cod }>{pilha3.descricao}</h1>) }
+
+        <br />
+        <div className="bg-slate-600 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+          {pilha3.map((pilha3) => (
+            <h1 key={pilha3.cod}>{pilha3.descricao}</h1>
+          ))}
         </div>
-        <br/>
-        <div className='bg-slate-700 w-96 mx-auto rounded-lg border border-blue-500'>
-        { pilha4.map( (pilha4) => <h1 key={ pilha4.cod }>{pilha4.descricao}</h1>) }
+        <br />
+        <div className="bg-slate-700 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+          {pilha4.map((pilha4) => (
+            <h1 key={pilha4.cod}>{pilha4.descricao}</h1>
+          ))}
         </div>
       </div>
     </div>
