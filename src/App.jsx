@@ -70,19 +70,27 @@ function handleRemoveContainer() {
         <div className='mt-4 px-36 space-x-24'>
           <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleAddNewContainer}>Adicionar</button>
           <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={handleRemoveContainer}>Remover</button>
+          <button className='bg-blue-900 rounded-md px-10 py-2 text-white' onClick={listarPilhas}>Listar</button>
         </div>  
       </div>
       <div className="flex-wrap">
-        <div className='bg-slate-400 w-96 mx-auto mt-4'>
+      
+        <div className='bg-slate-400 w-96 mx-auto mt-4 rounded-lg border border-blue-500'>
           { pilha1.map( (pilha1) => <h1 className='' key={ pilha1.cod }>{pilha1.descricao}</h1>) }
         </div>
-        <div className='bg-slate-500 w-96 mx-auto'>
+        
+        <br/>
+        
+        <div className='bg-slate-500 w-96 mx-auto rounded-lg border border-blue-500'>
         { pilha2.map( (pilha2) => <h1 key={ pilha2.cod }>{pilha2.descricao}</h1>) }
         </div>
-        <div className='bg-slate-600 w-96 mx-auto'>
+        
+        <br/>
+        <div className='bg-slate-600 w-96 mx-auto rounded-lg border border-blue-500'>
         { pilha3.map( (pilha3) => <h1 key={ pilha3.cod }>{pilha3.descricao}</h1>) }
         </div>
-        <div className='bg-slate-700 w-96 mx-auto'>
+        <br/>
+        <div className='bg-slate-700 w-96 mx-auto rounded-lg border border-blue-500'>
         { pilha4.map( (pilha4) => <h1 key={ pilha4.cod }>{pilha4.descricao}</h1>) }
         </div>
       </div>
