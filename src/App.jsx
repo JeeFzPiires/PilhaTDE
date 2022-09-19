@@ -1,5 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
+import { Button } from "./components/Button";
 
 function App() {
   const [description, setDescription] = useState("");
@@ -128,26 +129,14 @@ function App() {
             onChange={onChange}
           />
         </div>
+
         <div className="mt-4 px-36 space-x-24">
-          <button
-            className="bg-blue-900 rounded-md px-10 py-2 text-white"
-            onClick={handleAddNewContainer}
-          >
-            Adicionar
-          </button>
-          <button
-            className="bg-blue-900 rounded-md px-10 py-2 text-white"
-            onClick={handleRemoveContainer}
-          >
-            Remover
-          </button>
-          <button
-            className="bg-blue-900 rounded-md px-10 py-2 text-white"
-            onClick={listarPilhas}
-          >
-            Listar
-          </button>
+          <Button description="Adicionar" onClick={handleAddNewContainer} />
+          <Button description="Remover" onClick={handleRemoveContainer} />
+          <Button description="Listar" onClick={listarPilhas} />
         </div>
+
+
       </div>
       <div className="flex-wrap">
         <div className="bg-slate-400 w-96 mx-auto mt-4 rounded-lg border border-blue-500 px-2">
