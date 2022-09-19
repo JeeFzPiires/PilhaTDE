@@ -96,17 +96,17 @@ export function Home() {
 
   return (
     <div className="bg-slate-900 w-screen h-screen">
-      <div className="w-1/2 mx-auto">
+      <div className="w-1/2 mx-auto flex flex-col">
         <h1 className="text-white font-bold text-3xl pt-20 text-center">
           Adicione a Descrição do container
         </h1>
 
-        <div className="mt-8 px-32">
+        <div className="mt-8 px-32 grid grid-cols-2">
           <Input placeholder="Insira o codigo" onChange={onChangeCod} />
           <Input placeholder="Insira a descrição" value={description} onChange={onChangeDescription} />
         </div>
 
-        <div className="mt-4 px-36 space-x-24">
+        <div className="mt-4 px-24 gap-2 grid grid-cols-3">
           <Button description="Adicionar" onClick={handleAddNewContainer} />
           <Button description="Remover" onClick={handleRemoveContainer} />
           <Button description="Listar" onClick={listarPilhas} />
@@ -116,7 +116,7 @@ export function Home() {
       <div className="flex-wrap">
         <div className="bg-slate-400 w-96 mx-auto mt-6 rounded-lg border border-blue-500 px-2">
           {pilha1.map((pilha1) => (
-            <h1 key={pilha1.id}>{pilha1.descricao}</h1>
+            <h1 key={pilha1.id}>{pilha1.cod} {pilha1.descricao}</h1>
           ))}
         </div>
 
