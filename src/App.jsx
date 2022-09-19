@@ -23,6 +23,18 @@ function App() {
   }
 
   function handleAddNewContainer() {
+    let tamanhoArray1 = pilha1.length;
+    let tamanhoArray2 = pilha2.length;
+    let tamanhoArray3 = pilha3.length;
+    let tamanhoArray4 = pilha4.length;
+
+    var menor = Math.min(
+      tamanhoArray1,
+      tamanhoArray2,
+      tamanhoArray3,
+      tamanhoArray4
+    );
+
     const newPilha = {
       cod: id * Math.floor(Math.random() * id),
       descricao: description,
@@ -30,15 +42,27 @@ function App() {
 
     const newPilhas = [...pilha1, newPilha];
 
-    if (pilha1.length >= 0 && pilha1.length < 3) {
+    if (menor === tamanhoArray1 && pilha1.length >= 0 && pilha1.length < 3) {
       setPilha1(newPilhas);
-    } else if (pilha2.length >= 0 && pilha2.length < 3) {
+    } else if (
+      menor === tamanhoArray2 &&
+      pilha2.length >= 0 &&
+      pilha2.length < 3
+    ) {
       const newPilhas2 = [...pilha2, newPilha];
       setPilha2(newPilhas2);
-    } else if (pilha3.length >= 0 && pilha3.length < 3) {
+    } else if (
+      menor === tamanhoArray3 &&
+      pilha3.length >= 0 &&
+      pilha3.length < 3
+    ) {
       const newPilhas3 = [...pilha3, newPilha];
       setPilha3(newPilhas3);
-    } else if (pilha4.length >= 0 && pilha4.length < 3) {
+    } else if (
+      menor === tamanhoArray4 &&
+      pilha4.length >= 0 &&
+      pilha4.length < 3
+    ) {
       const newPilhas4 = [...pilha4, newPilha];
       setPilha4(newPilhas4);
     } else {
@@ -46,7 +70,31 @@ function App() {
         "Todas Pilhas estão cheias remova, para adicionar um novo container"
       );
     }
+
     setDescription("");
+  }
+  function AdicionarContainerNaPilha() {
+    let tamanhoArray1 = pilha1.length;
+    let tamanhoArray2 = pilha2.length;
+    let tamanhoArray3 = pilha3.length;
+    let tamanhoArray4 = pilha4.length;
+
+    var menor = Math.min(
+      tamanhoArray1,
+      tamanhoArray2,
+      tamanhoArray3,
+      tamanhoArray4
+    );
+
+    if (menor === tamanhoArray1) {
+      setPilha1(newPilhas);
+    } else if (menor === tamanhoArray2) {
+      setPilha2(newPilhas2);
+    } else if (menor === tamanhoArray3) {
+      setPilha3(newPilhas3);
+    } else if (menor === tamanhoArray4) {
+      setPilha4(newPilhas4);
+    }
   }
 
   function handleRemoveContainer() {
