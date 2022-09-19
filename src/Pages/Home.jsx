@@ -4,7 +4,9 @@ import { Input } from "../components/Input";
 
 export function Home() {
   const [description, setDescription] = useState("");
-  const id = Math.floor(100);
+  const [codigo, setCodigo] = useState(0)
+  const idRandom = Math.floor(100);
+
   const [pilha1, setPilha1] = useState([]);
   const [pilha2, setPilha2] = useState([]);
   const [pilha3, setPilha3] = useState([]);
@@ -35,9 +37,14 @@ export function Home() {
       tamanhoArray3,
       tamanhoArray4
     );
+    if(description === '' || codigo === 0){
+      alert("Infome uma descrição e um codigo")
+      return;
+    }
 
     const newPilha = {
-      cod: id * Math.floor(Math.random() * id),
+      codigoContainer: codigo,
+      id: idRandom * Math.floor(Math.random() * idRandom),
       descricao: description,
     };
 
@@ -80,8 +87,11 @@ export function Home() {
     console.log(pilha1);
   }
 
-  const onChange = (e) => {
+  const onChangeDescription = (e) => {
     setDescription(e.target.value);
+  };
+  const onChangeCod = (e) => {
+    setCodigo(e.target.value);
   };
 
   return (
@@ -92,16 +102,8 @@ export function Home() {
         </h1>
 
         <div className="mt-8 px-32">
-          <Input
-            placeholder="Insira o codigo"
-            value={description}
-            onChange={onChange}
-          />
-          <Input
-            placeholder="Insira a descrição"
-            value={description}
-            onChange={onChange}
-          />
+          <Input placeholder="Insira o codigo" onChange={onChangeCod} />
+          <Input placeholder="Insira a descrição" value={description} onChange={onChangeDescription} />
         </div>
 
         <div className="mt-4 px-36 space-x-24">
@@ -110,35 +112,33 @@ export function Home() {
           <Button description="Listar" onClick={listarPilhas} />
         </div>
       </div>
+
       <div className="flex-wrap">
-        <div className="bg-slate-400 w-96 mx-auto mt-4 rounded-lg border border-blue-500 px-2">
+        <div className="bg-slate-400 w-96 mx-auto mt-6 rounded-lg border border-blue-500 px-2">
           {pilha1.map((pilha1) => (
-            <h1 className="" key={pilha1.cod}>
-              {pilha1.descricao}
-            </h1>
+            <h1 key={pilha1.id}>{pilha1.descricao}</h1>
           ))}
         </div>
 
-        <br />
-
-        <div className="bg-slate-500 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+        <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha2.map((pilha2) => (
-            <h1 key={pilha2.cod}>{pilha2.descricao}</h1>
+            <h1 key={pilha2.id}>{pilha2.descricao}</h1>
           ))}
         </div>
 
-        <br />
-        <div className="bg-slate-600 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+        <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha3.map((pilha3) => (
-            <h1 key={pilha3.cod}>{pilha3.descricao}</h1>
+            <h1 key={pilha3.id}>{pilha3.descricao}</h1>
           ))}
         </div>
-        <br />
-        <div className="bg-slate-700 w-96 mx-auto rounded-lg border border-blue-500 px-2">
+        
+        <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha4.map((pilha4) => (
-            <h1 key={pilha4.cod}>{pilha4.descricao}</h1>
+            <h1 key={pilha4.id}>{pilha4.descricao}</h1>
           ))}
         </div>
+
+
       </div>
     </div>
   );
