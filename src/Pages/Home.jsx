@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
+import _ from "lodash";
+
 export function Home() {
   const [description, setDescription] = useState("");
   const [codigo, setCodigo] = useState(0)
-  const idRandom = Math.floor(100);
+  // const idRandom = Math.floor(100);
 
   const [pilha1, setPilha1] = useState([]);
   const [pilha2, setPilha2] = useState([]);
@@ -37,14 +39,14 @@ export function Home() {
       tamanhoArray3,
       tamanhoArray4
     );
-    if(description === '' || codigo === 0){
+
+    if(description === '' || codigo === null || codigo === 0){
       alert("Infome uma descrição e um codigo")
       return;
     }
 
     const newPilha = {
-      codigoContainer: codigo,
-      id: idRandom * Math.floor(Math.random() * idRandom),
+      id: codigo,
       descricao: description,
     };
 
@@ -80,11 +82,59 @@ export function Home() {
     }
 
     setDescription("");
+    setCodigo("");
   }
 
   function handleRemoveContainer() {
-    pilha1.pop();
-    console.log(pilha1);
+    removerPilha1(pilha1, codigo)
+    removerPilha2(pilha2, codigo)
+    removerPilha3(pilha3, codigo)
+    removerPilha4(pilha4, codigo)
+
+    function removerPilha1(array, id) {
+      var result = array.filter(function(el) {
+        return el.id == id;
+      })
+      for(var elemento of result){
+        var index = array.indexOf(elemento)
+        array.splice(index, 1)
+      }
+    }
+    function removerPilha2(array, id) {
+      var result = array.filter(function(el) {
+        return el.id == id;
+      })
+      for(var elemento of result){
+        var index = array.indexOf(elemento)
+        array.splice(index, 1)
+      }
+    }
+    function removerPilha3(array, id) {
+      var result = array.filter(function(el) {
+        return el.id == id;
+      })
+      for(var elemento of result){
+        var index = array.indexOf(elemento)
+        array.splice(index, 1)
+      }
+    }
+    function removerPilha4(array, id) {
+      var result = array.filter(function(el) {
+        return el.id == id;
+      })
+      for(var elemento of result){
+        var index = array.indexOf(elemento)
+        array.splice(index, 1)
+      }
+    }
+    
+    
+    
+
+    console.log(pilha1)
+    console.log(pilha2)
+    console.log(pilha3)
+    console.log(pilha4)
   }
 
   const onChangeDescription = (e) => {
@@ -98,7 +148,7 @@ export function Home() {
     <div className="bg-slate-900 w-screen h-screen">
       <div className="w-1/2 mx-auto flex flex-col">
         <h1 className="text-white font-bold text-3xl pt-20 text-center">
-          Adicione a Descrição do container
+          Adicione a descrição do container
         </h1>
 
         <div className="mt-8 px-32 grid grid-cols-2">
@@ -116,25 +166,25 @@ export function Home() {
       <div className="flex-wrap">
         <div className="bg-slate-400 w-96 mx-auto mt-6 rounded-lg border border-blue-500 px-2">
           {pilha1.map((pilha1) => (
-            <h1 key={pilha1.id}>{pilha1.cod} {pilha1.descricao}</h1>
+            <h1 key={pilha1.id}><span className="font-bold">ID:</span> {pilha1.id} <span className="font-bold">Desc:</span> {pilha1.descricao}</h1>
           ))}
         </div>
 
         <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha2.map((pilha2) => (
-            <h1 key={pilha2.id}>{pilha2.descricao}</h1>
+            <h1 key={pilha2.id}><span className="font-bold">ID:</span> {pilha2.id} <span className="font-bold">Desc:</span> {pilha2.descricao}</h1>
           ))}
         </div>
 
         <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha3.map((pilha3) => (
-            <h1 key={pilha3.id}>{pilha3.descricao}</h1>
+            <h1 key={pilha3.id}><span className="font-bold">ID:</span> {pilha3.id} <span className="font-bold">Desc:</span> {pilha3.descricao}</h1>
           ))}
         </div>
         
         <div className="bg-slate-400 w-96 mx-auto rounded-lg border border-blue-500 px-2 mt-6">
           {pilha4.map((pilha4) => (
-            <h1 key={pilha4.id}>{pilha4.descricao}</h1>
+            <h1 key={pilha4.id}><span className="font-bold">ID:</span> {pilha4.id} <span className="font-bold">Desc:</span> {pilha4.descricao}</h1>
           ))}
         </div>
 
